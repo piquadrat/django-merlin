@@ -154,7 +154,7 @@ class SessionWizard(object):
         by calling ``self.done``
         """
         form = step.form(request.POST)
-
+        self.process_POST_form(request, step, form)
         if not form.is_valid():
             return self._show_form(request, step, form)
 
@@ -411,6 +411,9 @@ class SessionWizard(object):
         :param form:
             The Django ``Form`` object that is being processed.
         """
+        pass
+    
+    def process_POST_form(self, request, step, form):
         pass
 
     def get_template(self, request, step, form):
